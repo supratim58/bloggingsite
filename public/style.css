@@ -1,0 +1,105 @@
+#myform{
+    display: flex;
+    flex-flow:column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    height:50vh;
+    gap:20px;
+    margin-top:50px;
+}
+.inputsdivs{
+    /* border:solid; */
+    width:350px;
+    height:6vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:20px;
+    border-top-left-radius: 10px;
+
+}
+.inputfields{
+    border: orange solid 2px;
+    width:15rem;
+    height:1.7rem;
+    box-shadow:3px 3px 7px orange;
+    border-radius: 5px;
+}
+label{
+    border:dashed 0.5px black;
+    height:1.7rem;
+    width:5rem;
+    text-align: right;
+    text-decoration: underline;
+    background-color: rgb(255, 255, 255);
+    border-radius:5px;
+    padding-right:5px;
+    box-shadow:4px 4px 6px rgb(106, 105, 104);
+    color:rgb(254, 254, 255);
+    text-shadow:3px 3px 8px black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+div>h1{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:white;
+    text-shadow:8px 8px 18px black;
+}
+#headingholder{
+    display: flex;
+    justify-content: center;
+    margin-top:50px;
+}
+.submitbtn > input{
+    height:30px;
+    border: solid green;
+    border-radius:5px;
+    font-family: sans-serif;
+    box-shadow:4px 4px 10px rgb(3, 64, 9);
+    width:350px;
+    background-color: green;
+    color:white;
+}
+.submitbtn{
+    display: flex;
+    justify-content: center;
+    width:350px;
+}
+red{
+    color:red;
+}
+blue{
+    color:blue;
+}
+green{
+    color:green;
+}
+bold{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+yellow{
+    color:yellow;
+}
+boyd{
+    padding-left:0px;
+    padding-right:0px;
+    margin-left:0px;
+    margin-right:0px;
+}
+.lead.text-body-secondary{
+    margin-top:20px;
+}
+a.btn-success.btn{
+    margin-top:20px;
+}
+@media(max-width:400px){
+    .inputsdivs{
+        width:80vw;
+    }
+    label{
+        font-size:small;
+        width:80px;
+    }
+    .submitbtn >input{
+        width:100px;
+    }
+}

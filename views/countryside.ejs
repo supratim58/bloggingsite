@@ -1,0 +1,44 @@
+<link href = "/style.css" rel = "stylesheet"/>
+<%- include("header.ejs")%>
+    <main>
+        <section class="py-0 text-center container">
+          <div class="row py-lg-3">
+            <div class="col-lg-6 col-md-8 mx-auto">
+              <h2 class="fw-light"><font style="vertical-align: inherit; font-size:xxx-large"><font style="vertical-align: inherit;"><t1>Take a Break once in a while, Here Lets checkout some of the <red><bold>town</bold></red> areas :</t1></font></font></h2>
+              <p class="lead text-body-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Import from your soul the greatest of definitons of beauty. <green><bold>Upload</bold></green>, <blue><bold>read</bold></blue> and <red><bold>delete</bold></red></font></font></p>
+              <p>
+                <a href="/section/<%=name%>/add" class="btn btn-success my-2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Add Blog</font></font></a>
+              </p>
+            </div>
+          </div>
+        </section>
+      
+        <div class="album py-3 bg-body-tertiary">
+            <%# add the divs here:%>
+            <%if(blogs.length == 0){%>
+            <center style = "padding:10vh 0;">Start <green><bold>Adding</bold></green> your blogs now !</center>
+            <%}%>
+            <div class="container">
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <% for(let i = 0;i<blogs.length;i++){ %>
+                    <div class="col">
+                    <div class="card shadow-sm">
+                    <a href = "/section/<%=name%>/<%=i%>/view">
+                    <img class="bd-placeholder-img card-img-top" width="auto" height=<%=blogs[i].imageheight%> role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" src = <%=blogs[i].imagelink%> />
+                    </a>
+                    <div class="card-body">
+                    <p class="card-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><%=blogs[i].blogcontent%></font></font></p>
+                    <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                    <form action = "/section/<%=name%>/edit/<%=i%>" method = "POST">
+                    <button type="submit" class="btn btn-sm btn-outline-secondary btn-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;color:white">Edit</font></font></button>
+                    </form>
+                    <form action = "/section/<%=name%>/delete/<%=i%>" method = "POST">
+                    <button type="submit" href = "" class="btn btn-sm btn-outline-danger btn-danger"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;color:white">Delete</font></font></button>
+                    </form></div></div></div></div></div>
+                <%}%>
+              </div>
+            </div>
+        </div>      
+    </main>
+<%- include("footer.ejs")%>

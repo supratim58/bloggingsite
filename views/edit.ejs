@@ -1,0 +1,161 @@
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Playwrite+BE+VLG:wght@100..400&display=swap"
+  rel="stylesheet"
+/>
+<%- include("header.ejs") %>
+<style>
+  .inputsdivs {
+    font-family: cursive;
+  }
+  #headingholder {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 0px;
+    font-family: cursive;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .inputfields {
+    width: 60vw;
+    height: 35px;
+    border: solid orange 2px;
+    text-align: center;
+  }
+  .inputsdivs {
+    display: flex;
+    width: 90vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+  .inputfields[name="ldes"] {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+  }
+  .inputfields[name="sdes"] {
+    font-family: "Playwrite BE VLG", cursive;
+  }
+  label {
+    width: 100px;
+    text-align: center;
+    border-radius: 5px;
+  }
+  label[for="ldes"],
+  label[for="sdes"] {
+    width: 150px;
+  }
+  input[type="submit"] {
+    font-family: cursive;
+    border: none;
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 15px;
+  }
+  hr {
+    margin: 0;
+    margin-bottom: 50px;
+    width: 50vw;
+  }
+  textarea {
+    font-size: 15;
+    font-family: "Playwrite BE VLG", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    padding-left: 5px;
+  }
+  div.imageholder {
+    width: 60vw;
+    display: flex;
+    justify-content: center;
+    height: auto;
+  }
+  img {
+    width: 30vw;
+    height: auto;
+  }
+  #hider {
+    height:auto;
+  }
+</style>
+<div id="headingholder">
+  <h1>Edit Your Blog</h1>
+</div>
+<center><hr /></center>
+<form action="/section/<%=name%>/saveEdit/<%=id%>" method="POST" id="myform">
+  <div id = "dateholder" style = "display: flex; justify-content: flex-start; width:60vw;font-family: cursive; padding-bottom:5px">
+    <label style = "width:50px; text-align: left;" for = "dateval">Date : </label>
+    <input type = "text" name = "dateval" disabled value = "<%=blogs.at(id).posttime%>">
+  </div>
+  <div class="inputsdivs">
+    <label for="imagelink">Image url</label>
+    <input
+      type="url"
+      class="inputfields url"
+      name="imagelink"
+      placeholder="Enter the url for the image"
+      value = <%=blogs.at(id).imagelink%>
+    />
+  </div>
+  <div class="imageholder">
+    <div class="inputsdivs" id="hider">
+      <label style="width: 200px">Image Preview</label>
+      <img src="<%=blogs.at(id).imagelink%>" />
+    </div>
+  </div>
+  <div class="inputsdivs">
+    <label for="sdes">short Description</label>
+    <input
+      type="text"
+      class="inputfields sdes"
+      name="sdes"
+      placeholder="Give a short description about the blog"
+      value="<%= blogs.at(id).blogcontent %>"
+    />
+  </div>
+  <div class="inputsdivs">
+    <label for="ldes">Long Description</label>
+    <textarea type="text" class="inputfields fdes" name="ldes" value = "<%=blogs.at(id).ldes%>"></textarea>
+  </div>
+  <div class="submitbtn inputsdivs">
+    <input type="submit" value="Save Changes" />
+  </div>
+</form>
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"
+></script>
+<script>
+    $("img").css("height","auto");
+    $("#hider").css("height","auto");
+    $(".url").on("input", () => {
+    var val = document.querySelector(".url").value;
+    var hider = $("#hider label");
+    $("img").attr("src", val);
+    if(val == "") {
+        $("#hider").css("height", "0");
+        $("img").css("height","0");
+        hider.text("");
+    }
+    else {
+        $("#hider").css("height", "auto");
+        $("img").css("height","auto");
+        hider.text("Image Preview");
+    }
+  });
+</script>
+<%- include("footer.ejs")%>

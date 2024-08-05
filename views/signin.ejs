@@ -1,0 +1,23 @@
+<link href = "/style.css" rel = "stylesheet"/>
+<%- include("header.ejs") %>
+        <div id = "headingholder">
+            <h1>Create Account</h1>
+        </div>
+        <form action = "/signin/submit" method = "POST" id = "myform">
+            <div class = "inputsdivs">
+                <label for = "fName">First Name</label>
+                <input type = "text" class = "inputfields" name = "fName" placeholder="enter your first name"/>
+            </div>
+            <div class = "inputsdivs">
+                <label for = "lName">Last Name</label>
+                <input type = "text" class = "inputfields" name = "lName" placeholder="enter your last name"/>
+            </div>
+            <div class = "inputsdivs">
+                <label for = "emailId">Email Id</label>
+                <input type = "text" class = "inputfields" name="emailId" placeholder="email should be at least 8 characters long"/>
+            </div>
+            <div class = "submitbtn inputsdivs">
+                <input type = "submit" value = "Confirm"/>
+            </div>
+        </form>
+<%- include("footer.ejs")%>
